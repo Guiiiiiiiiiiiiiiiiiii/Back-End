@@ -107,4 +107,3 @@ numbers1to100(100); */
     console.log(resultado);
 }
 calfatorial(5); */
-
