@@ -108,19 +108,3 @@ numbers1to100(100); */
 }
 calfatorial(5); */
 
-function minimo1(n1){
-    var npequeno = n1[0];
-    var natual = null;
-    for (var i = 0; i < n1.lenght; i++){
-    natual = n1[i];
-    
-        if (npequeno > natual){
-        npequeno = natual;
-    
-        }
-    }
-    console.log(npequeno);
-}
-minimo1([2,1,5,6,7,8,9])
-
-
