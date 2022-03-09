@@ -90,7 +90,7 @@ operador(2,2,"**") */
 }
 imprimir(5);
  */
-/* function numbers1to100 (value){
+function numbers1to100 (value){
     var s =0;
     for (var i= 1; i<=value; i++){
         s+=i
@@ -98,5 +98,5 @@ imprimir(5);
     return s;
 }
 
-var something = sum(100);
- */
+numbers1to100(100);
+
