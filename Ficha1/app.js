@@ -101,9 +101,10 @@ numbers1to100(100); */
 
 /* function calfatorial(fatorial){
     var resultado = fatorial;
-    for (var i = 1; i < fatorial; i++) {
+    for (var i = 1; i <= fatorial; i++) {
     resultado *= i;
     }
     console.log(resultado);
 }
 calfatorial(5); */
+
