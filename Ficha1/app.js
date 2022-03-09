@@ -94,8 +94,33 @@ imprimir(5); */
     var s =0;
     for (var i= 1; i<=value; i++){
         s+=i
-        return s;
     }
+    console.log(s);
 }
-var something = numbers1to100(100); */
+numbers1to100(100); */
+
+/* function calfatorial(fatorial){
+    var resultado = fatorial;
+    for (var i = 1; i < fatorial; i++) {
+    resultado *= i;
+    }
+    console.log(resultado);
+}
+calfatorial(5); */
+
+function minimo1(n1){
+    var npequeno = n1[0];
+    var natual = null;
+    for (var i = 0; i < n1.lenght; i++){
+    natual = n1[i];
+    
+        if (npequeno > natual){
+        npequeno = natual;
+    
+        }
+    }
+    console.log(npequeno);
+}
+minimo1([2,1,5,6,7,8,9])
+
 
