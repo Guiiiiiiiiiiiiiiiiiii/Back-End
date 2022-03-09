@@ -99,4 +99,3 @@ imprimir(5); */
 }
 var something = numbers1to100(100); */
 
-
