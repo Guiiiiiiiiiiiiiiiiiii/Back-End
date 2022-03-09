@@ -95,7 +95,6 @@ function numbers1to100 (value){
     for (var i= 1; i<=value; i++){
         s+=i
     }
-    return s;
 }
 
 numbers1to100(100);
