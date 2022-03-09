@@ -88,14 +88,15 @@ operador(2,2,"**") */
         resultado += numero
     }
 }
-imprimir(5);
- */
-function numbers1to100 (value){
+imprimir(5); */
+
+/* function numbers1to100 (value){
     var s =0;
     for (var i= 1; i<=value; i++){
         s+=i
+        return s;
     }
 }
+var something = numbers1to100(100); */
 
-numbers1to100(100);
 
