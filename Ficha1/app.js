@@ -108,3 +108,20 @@ numbers1to100(100); */
 }
 calfatorial(5); */
 
+function min(array1){
+    var array= [2,7,9,0,3];
+var min = array[0];
+for(var i=1; i<array.length; i++){
+    if(array[i] < min)
+        min = array[i];
+    }
+}
+
+function min(array1){
+    var array= [2,7,9,0,3];
+var min = array[0];
+for(var i=1; i<array.length; i++){
+    if(array[i] > min)
+        min = array[i];
+    }
+}
