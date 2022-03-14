@@ -108,7 +108,7 @@ numbers1to100(100); */
 }
 calfatorial(5); */
 
-function min(array1){
+/* function min(array1){
     var array= [2,7,9,0,3];
 var min = array[0];
 for(var i=1; i<array.length; i++){
@@ -117,7 +117,7 @@ for(var i=1; i<array.length; i++){
     }
 }
 
-function min(array1){
+function max(array1){
     var array= [2,7,9,0,3];
 var min = array[0];
 for(var i=1; i<array.length; i++){
@@ -125,3 +125,5 @@ for(var i=1; i<array.length; i++){
         min = array[i];
     }
 }
+ */
+
