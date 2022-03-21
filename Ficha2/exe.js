@@ -79,6 +79,12 @@ work(8,0,0,9,1,1) */
 }
 retangulo(20,10) */
 
-function triangulo(altura){
-    for(var i=0; i<altura)
+/* function triangulo(altura){
+    var linha="";
+    for(var i=0; i<altura;i++){
+        linha+="*"
+        console.log(linha)
+    }
 }
+triangulo(10) */
+
