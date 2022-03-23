@@ -115,7 +115,7 @@ box(10,10) */
 
 var students = [];
 
-for(let i=0; i<100;i++){
+for(let i=0; i<10;i++){
     var student = {
         number: Math.ceil(Math.random()*1000), 
         grade: Math.random()*20
