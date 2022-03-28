@@ -1,4 +1,4 @@
-function started(){
+/* function started(){
     console.log("Started Download")
 }
 function update(progress){
@@ -13,4 +13,9 @@ function performDownload(started_fn, update_fn, completed_fn){
     }
     completed_fn();
 }
-performDownload(started,update, completed)
+performDownload(started,update, completed)  */
+
+var arrayUtils = require("./ArrayUtils.js")
+var array = [1,2,3,4,5];
+var array2 = [1,2,3,4,5];
+console.log(arrayUtils.isSameLength(array,array2));
