@@ -17,5 +17,4 @@ performDownload(started,update, completed)  */
 
 var arrayUtils = require("./ArrayUtils.js")
 var array = [1,2,3,4,5];
-var array2 = [1,2,3,4,5];
-console.log(arrayUtils.isSameLength(array,array2));
+console.log(arrayUtils.subArray(array));
