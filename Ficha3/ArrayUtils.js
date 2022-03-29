@@ -42,7 +42,12 @@ var obj = {
         return array_2; 
     },
     isSameLength: function(a1, a2){
-        if(a1.length>a2.legth || a2.legth>a1.length) return false
+        if(a1.length== a2.length){
+            return true
+        }
+        else{
+            return false
+        }
     }
 
 
