@@ -30,10 +30,10 @@ var obj = {
     indexOf: function(array,value){
         for(var i=0; i<array.length;i++){
             if(array[i]==value){
-                var index = i
+                return i;
             }
         }
-        return index
+        return -1
     },
     subArray: function(array, startIndex, endIndex){
         var startIndex= array[0];
@@ -42,20 +42,29 @@ var obj = {
         return array_2; 
     },
     isSameLength: function(a1, a2){
-        if(a1.length== a2.length){
-            return true
-        }
-        else{
-            return false
-        }
-    },
+        return a1.length == a2.length;
+    },     
     reverse: function(array){
-        var newArray=[]
-        for(i=0; i<array.length-1;i++){
-            newArray+=[i]
+        var newArray=[];
+        for(i=array.length-1;i>=0;i--){
+            newArray.push(array[i])
         }
         return newArray;
+    },
+    swap: function(array,index1,index2){
+        [array[index1], array[index2]] = [array[index2], array[index1]]
+        return array
+    },
+    contains: function(array, value){
+        return this.indexOf(array,value) != -1;
+    },
+    concatenate: function(a1,a2){
+        for(var i=0; i<a1.length; i++){
+        a2.push(a1[i])
+        }
+        return a2
     }
+       
 
 
 }
