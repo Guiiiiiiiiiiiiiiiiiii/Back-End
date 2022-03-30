@@ -48,6 +48,13 @@ var obj = {
         else{
             return false
         }
+    },
+    reverse: function(array){
+        var newArray=[]
+        for(i=0; i<array.length-1;i++){
+            newArray+=[i]
+        }
+        return newArray;
     }
 
 
