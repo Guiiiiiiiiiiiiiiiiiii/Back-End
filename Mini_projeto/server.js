@@ -64,15 +64,12 @@ app.get('/product/id', function(request,response){
     })
 });
 //////B
-app.delete('/product/:id', function(request,response){
-    var id = request.params.id
-    if(id == undefined){
-        response.send("This id dont exist!");
-    }
-    else{
-        connection.query("DELETE * FROM product WHERE id = ? "),[id] ,function (err, rows, fields) {
-            response.send("Affected Rows:" + rows.affectedRows);}
-    }
+app.delete('/product/:id', (request, response) => {
+    var id = request.params.id;
+        connection.query("DELETE FROM product WHERE id = ?",[id], function (err, rows, fields) {
+            if (err) throw err;
+            response.send("Affected Rows:" + rows.affectedRows);
+        }) 
 });
 app.put('/product/:id', (request, response) => {
     var id = request.params.id;

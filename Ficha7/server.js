@@ -44,7 +44,7 @@ app.put('/users/:id', function(request,response){
     var id = request.params.id;
     var person = request.body;
     connection.query("UPDATE person SET ? WHERE id = ? ",[id,person] ,function (err, rows, fields) {
-        response.send(rows);
+        response.send(rows.changedRows);
     })
 });
 
