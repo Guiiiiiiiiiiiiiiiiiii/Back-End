@@ -20,6 +20,10 @@ var connection = mysql.createConnection({
     password: '',
     database: 'Products'
 });
+// app = instancia da aplicaçao
+// get/post/delete = metodo http
+// /product/... caminho endpoint 
+// request= pedido   // response = resposta
 ////////////A
 app.get('/product', function(request,response){
     connection.query("SELECT * FROM product", function (err, rows, fields) {
@@ -29,6 +33,7 @@ app.get('/product', function(request,response){
 ///////////B
 app.post('/product', function(request,response){
     var product = request.body;
+    
     connection.query("INSERT product SET ? ",[product] ,function (err, rows, fields) {
         response.send("Product inserted with id: " + rows.insertId);
     })
@@ -41,13 +46,12 @@ app.get('/product/seller_id', function(request,response){
     })
 });
 ///////////D
-app.get('/product', function(request,response){
-    var seller = request.query.seller_id;
-    connection.query("SELECT * FROM product ",[seller] ,function (err, rows, fields) {
-        response.send(rows);
-    })
-
-});
+app.put('/product/:id/views', function(req,res){
+    var id = req.params.id;              
+    connection.query("UPDATE product SET views = views + 1 WHERE id = ?",  [id],function(err, rows, fields){
+     res.send("Foi adicionado uma view ao produto " + id);
+    });
+ });
 /////////E
 app.get('/product/tags', function(request,response){
     var tagg = request.query.tags;
@@ -71,19 +75,48 @@ app.delete('/product/:id', (request, response) => {
             response.send("Affected Rows:" + rows.affectedRows);
         }) 
 });
-app.put('/product/:id', (request, response) => {
+//////C
+app.put('/product/:id/:images', function(request,response){
+    var imagens = request.params.images;
     var id = request.params.id;
-    var productfromBody = request.body;
-    var product = productObject["product" + id];
 
-    if(product == undefined){
-        response.send("this product dont exist!");
-    } else{
-    productfromBody.id = parseInt(id);
-    productObject["product" + id] = productfromBody;
-    writeFile('./product.json', JSON.stringify(productObject));
-    response.send(productfromBody);
+    connection.query("SELECT * FROM product WHERE id = ?",  [id],function(err, rows, fields){
+        var nc = rows[0].images + ";" + imagens;
+        if (err) throw err;
 
-    }
-  });
-  
+
+        connection.query("UPDATE product SET images = ? WHERE id = ?",  [nc,id],function(err, rows, fields){
+            if (err) throw err;
+
+            connection.query("SELECT * FROM product WHERE id = ?",  [id],function(err, rows, fields){
+                response.send(rows)
+            })
+        })
+    });
+ })
+/////D
+  app.put('/product/id', function(req,res){
+    var id = req.query.id;
+    var comentarios = req.query.comments
+    connection.query("SELECT * FROM product WHERE id = ?",  [id],function(err, rows, fields){
+        var nc = rows[0].comments + ";" + comentarios;
+        if (err) throw err;
+
+        connection.query("UPDATE product SET comments=? WHERE id = ?",  [nc,id],function(err, rows, fields){
+        if (err) throw err;
+
+            connection.query("SELECT * FROM product WHERE id = ?",  [id],function(err, rows, fields){
+                res.send(rows)
+            })
+        });
+    });
+ });
+  ////E
+  app.get('/product/views', function(req, res){
+    connection.query("SELECT * FROM product", function(err,rows,fields){
+        rows.sort(function(a,b){
+            return b.views - a.views;
+        });
+        res.send(rows);
+    })
+})
